@@ -1,18 +1,23 @@
 import React from 'react'
 import CountryList from './CountryList'
+import { Row, Col, Container } from 'reactstrap';
 
-const Country = ({countries}) => {
+const Country = ({ countries }) => {
     return (
-        <div>
-            {countries.map((country, index) => {
-                return (
-                    <CountryList
-                        key={index}
-                        country={country}
-                    />
-                )
-            })}
-        </div>
+        <Container fluid>
+            <Row>
+                {countries.map((country, index) => {
+                    return (
+                        <Col md={4} sm={6} className="mb-3">
+                            <CountryList
+                                key={index}
+                                country={country}
+                            />
+                        </Col>
+                    )
+                })}
+            </Row>
+        </Container>
     )
 }
 

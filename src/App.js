@@ -6,7 +6,7 @@ import CountryDetails from './components/CountryDetails'
 function App() {
   return (
     <Router>
-      <Route path="/" component={Countries} />
+      <Route exact path="/" component={Countries} />
       <Route path="/details" component={CountryDetails} />
     </Router>
   );
