@@ -1,12 +1,18 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom'
 
 const CountryList = ({ country }) => {
-    const { name, alpha2Code, timezones } = country
+    const { name, population, flag, capital, timezones } = country
     return (
         <div>
+            <Link to="/details">
+                <img src={flag} alt={name}/>
+            
+            </Link>
             <h1>{name}</h1>
-            <h1>{alpha2Code}</h1>
+            <h1>{population}</h1>
             <h1>{timezones}</h1>
+            <h1>{capital}</h1>
         </div>
     )
 }
