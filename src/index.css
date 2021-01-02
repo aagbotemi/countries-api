@@ -7,11 +7,6 @@
   --DarkGray: hsl(0, 0%, 52%); /* (Light Mode Input) */
   --VeryLightGray: hsl(0, 0%, 98%); /* (Light Mode Background) */
   --White: hsl(0, 0%, 100%); /* (Dark Mode Text & Light Mode Elements) */
-
-
-
-  --blue: rgb(26, 57, 87);
-  --white: rgb(236, 236, 236);
 }
 
 * {
@@ -19,36 +14,28 @@
   margin: 0;
   padding: 0;
 }
-
 body {
-  background: var(--VeryLightGray);
+  background: var(--VeryLightGray) !important;
   font-family: 'Nunito Sans', sans-serif;
   overflow-x: hidden;
-  /* font-size: 14px; */
   color: var(--VeryDarkBlue);
+  transition: all 0.8s ease-in-out;
 }
 .navbar {
   background: var(--White);
-  -webkit-box-shadow: 0px 5px 6px 0px rgba(250, 250, 250, 0.36);
-  -moz-box-shadow:    0px 5px 6px 0px rgba(250, 250, 250, 0.36);
-  box-shadow:         0px 5px 6px 0px rgba(250, 250, 250, 0.36);
 }
-
 .navbar .title {
   font-size: 24px;
   font-weight: 800;
-
 }
-@media only screen and (max-width:575px) {
-  .navbar .title {
-    font-size: 20px;
-  }
-}
+.card {
+  border: 0 !important;
+  -webkit-box-shadow: 0px 1px 4px 0px rgba(43, 57, 69, 0.5);
+-moz-box-shadow:    0px 1px 4px 0px rgba(43, 57, 69, 0.5);
+box-shadow:         0px 1px 4px 0px rgba(43, 57, 69, 0.5);}
 .card-img-top {
-  width: 100% !important;
   object-fit: cover;
 }
-
 .card-text {
   font-weight: 600;
   font-size: 14px;
@@ -60,127 +47,38 @@ body {
 DARK MODE
 =========
 */
-/* #darkMode {
-  background: transparent url("../moon.png") no-repeat center;
-  background-size: 30px 30px;
-  width: 45px;
-  height: 45px;
-  filter: grayscale(100%);
-  border: none;
-  border-radius: 50%;
-  transition: background-color 0.3s ease-in-out, filter 0.3s ease-in-out;
-}
-
-#darkMode:hover,
-#darkMode:focus {
-  filter: none;
-  background-color: black;
-  cursor: pointer;
-}
-
-#darkMode.clicked {
-  filter: none !important;
-  background-color: black;
-}
-
-body.light {
-  --background-color: var(--white);
-  --text-color: var(--blue);
-  --font-weight: 400;
-  --image: url("../day.jpg");
-}
-
-body.dark {
-  --background-color: var(--blue);
-  --text-color: var(--white);
-  --font-weight: 500;
-  --image: url("../night.jpg");
-}
-body {
-  background: var(--background-color);
-  color: var(--text-color);
-  font-weight: var(--font-weight);
-  transition: background 0.3s ease-in-out, color 0.6s ease-in-out;
-}
-
-#image {
-  width: 100%;
-  height: 300px;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  transition: background-image 0.7s ease-in-out;
-  background-image: var(--image);
-}
-
-nav {
-  padding: 1rem 25%;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  background: var(--text-color);
-}
-
-nav a {
-  text-decoration: none;
-  text-transform: uppercase;
-  color: var(--background-color);
-} */
-.theme-btn {
+.theme-btn, .theme-btn small {
   background: transparent;
   font-size: 18px;
 }
+@media only screen and (max-width:575px) {
+  .navbar .title {
+    font-size: 20px;
+  }
+  .theme-btn, .theme-btn small {
+    font-size: 14px;
+  }
+  
+}
+
 .theme-btn:focus {
   outline: none;
 }
 body.dark-mode {
-  background: var(--VeryDarkBlue);
+  background: var(--VeryDarkBlue) !important;
   color: var(--White);
 }
-.theme-btn.dark-mode {
+body.dark-mode .navbar .theme-btn small, 
+body.dark-mode .navbar .theme-btn span {
   color: var(--White);
 }
-
 body.dark-mode .navbar {
-  background:var(--VeryDarkBlue);
-  box-shadow: 1px 3px 0 1px #2f3139;
-}
-
-body.dark-mode .bg-light {
-    background-color: #12171e !important;
-}
-body.dark-mode .table {
-    color: #fff;
-}
-body.dark-mode #sidebar ul li a:hover {
-    background: #131820;
-    color: #ff9d9d;
-}
-
-body.dark-mode input {
-    background: #12171e;
-    color: #fff;
-    border: 1px solid #454444;
-}
-
-body.dark-mode .page-link {
-    background: transparent;
-    color: #fff;
-}
-
-body.dark-mode .page-item.disabled .page-link {
-    background: transparent;
-}
-body.dark-mode .list-group-item {
-    background: #12171e;
-    color: #fff;
-}
-body.dark-mode .list-group-item.active,
-body.dark-mode .list-group-item:hover {
-    background: #ababac;
+  background:var(--DarkBlue);
+  box-shadow: 1px 3px 0 1px var(--DarkBlue);
 }
 body.dark-mode .card {
-    background: #12171e;
+  background: var(--DarkBlue);
+  -webkit-box-shadow: 0px 1px 4px 0px rgba(100, 100, 100, 0.5);
+-moz-box-shadow:    0px 1px 4px 0px rgba(100, 100, 100, 0.5);
+box-shadow:         0px 1px 4px 0px rgba(100, 100, 100, 0.5);
 }
