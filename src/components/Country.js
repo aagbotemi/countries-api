@@ -5,7 +5,7 @@ import { Row, Col, Container } from 'reactstrap';
 const Country = ({ countries }) => {
     return (
         <Container fluid>
-            <Row>
+            <Row className="mt-sm-4 mt-3">
                 {countries.map((country, index) => {
                     return (
                         <Col md={4} sm={6} className="mb-3">
