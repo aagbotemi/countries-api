@@ -1,18 +1,13 @@
 import React, { useState } from 'react'
 
-const SearchFilter = () => {
-    const [search, setSearch] = useState("");
-
-    const handleChange = (e) => {
-        setSearch(e.target.value)
-    }
+const SearchFilter = ({ handleChange }) => {
     return (
-        <section className="search-filter d-flex justify-content-between mt-1 mt-md-3">
+        <section className="search-filter d-flex justify-content-between mt-3">
             <div>
-                {search}
                 <input
                     type="text"
                     className="w-full py-1 px-2 border-0 text-muted"
+                    //value={handleChange}
                     onChange={handleChange}
                     placeholder="Search for a country..."
                 />

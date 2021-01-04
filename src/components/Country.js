@@ -1,31 +1,34 @@
 import React from 'react'
 import CountryList from './CountryList'
 import { Row, Col, Container } from 'reactstrap';
-import SearchFilter from './SearchFilter';
+import { Link } from 'react-router-dom';
+import {
+    Card, CardImg, CardText, CardBody,
+    CardTitle, CardSubtitle
+} from 'reactstrap';
 
-const Country = ({ countries, search }) => {
-    const filteredCountries = countries.filter((country) =>
-        country.name.includes(search)
-    )
-
+const Country = ({ country }) => {
     
+    const { name, population, flag, capital, timezones, region } = country
+    // console.log(name);
     return (
-        <Container fluid>
-            <SearchFilter />
-            <Row className="mt-sm-3 mt-2">
-                {filteredCountries.map((country, index) => {
-                    // console.log(country);
-                    return (
-                        <Col md={4} sm={6} className="mb-3">
-                            <CountryList
-                                key={index}
-                                country={country}
-                            />
-                        </Col>
-                    )
-                })}
-            </Row>
-        </Container>
+        <div>
+            <Card>
+                <Link to="/details">
+                    <CardImg height="180rem" top src={flag} alt={name} />
+                </Link>
+                <CardBody>
+                    <div className="d-flex align-items-baseline mb-0">
+                        <CardTitle tag="h5">{name},</CardTitle>
+                        <CardSubtitle tag="h6" className="ml-1 text-muted">{capital}</CardSubtitle>
+                    </div>
+                    
+                    <CardText className="mb-0">Region: {region}</CardText>
+                    <CardText className="mb-0">Population: {population}</CardText>
+                    <CardText>Time zone: {timezones}</CardText>
+                </CardBody>
+            </Card>
+        </div>
     )
 }
 
