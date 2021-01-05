@@ -6,13 +6,13 @@ import { Col, Container, Row } from 'reactstrap';
 function App() {
   const [countries, setCountries] = useState([]); // the state of array where the weather is stored
   const [search, setSearch] = useState("");
+  const [region, setRegion] = useState("");
   const [filteredCountries, setFilteredCountries] = useState([]);
 
   const API_URL = "https://restcountries.eu/rest/v2/all";
   
   useEffect(() => {
     const getCountry = async () => {
-      
       try {
         const fetchCountry = await fetch(`${API_URL}`)
         const data = await fetchCountry.json()
@@ -27,20 +27,24 @@ function App() {
 
   useEffect(() => {
     setFilteredCountries(countries.filter(country => {
-      return country.name.toLowerCase().includes(search.toLowerCase())
+      return country.name.toLowerCase().includes(search.toLowerCase()) &&
+      country.region.toLowerCase().includes(region.toLocaleLowerCase())
     }))
-  }, [search, countries])
-
+  }, [search, countries, region])
 
   const handleChange = (e) => {
-      setSearch(e.target.value)
+    setSearch(e.target.value)
   }
+
+  const handleSelect = (e) => {
+    setRegion(e.target.value);
+  };
 
   return (
     <section>
       <Container fluid>
 
-        <SearchFilter handleChange={handleChange} />
+        <SearchFilter handleChange={handleChange} handleSelect={handleSelect} region={region} />
             
         <Row className="mt-sm-3 mt-2">
           {filteredCountries.map((country, index) => (

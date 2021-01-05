@@ -8,7 +8,6 @@ function App() {
   return (
     <Router>
       <Navbar />
-      
       <Route exact path="/" component={Countries} />
       <Route path="/details" component={CountryDetails} />
     </Router>

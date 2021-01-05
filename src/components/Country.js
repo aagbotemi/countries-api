@@ -1,6 +1,4 @@
-import React from 'react'
-import CountryList from './CountryList'
-import { Row, Col, Container } from 'reactstrap';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import {
     Card, CardImg, CardText, CardBody,
@@ -8,9 +6,7 @@ import {
 } from 'reactstrap';
 
 const Country = ({ country }) => {
-    
-    const { name, population, flag, capital, timezones, region } = country
-    // console.log(name);
+    const { name, population, flag, capital, timezones, region } = country;
     return (
         <div>
             <Card>
